@@ -1,0 +1,39 @@
+@use '../App';
+
+.checkBox {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    width: fit-content;
+
+    @extend .font;
+
+    .checkMark {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        width: 30px;
+        height: 30px;
+        background-color: white;
+        border: 3px solid black;
+        border-radius: 10px;
+
+        &.checked {
+            background-color: rgb(0, 68, 253);
+            color: white;
+        }
+    }
+
+    .text {
+        margin-left: 20px;
+
+        color: white;
+        font-size: 1.3rem;
+    }
+
+    &:hover {
+        cursor: pointer;
+    }
+}

@@ -1,0 +1,108 @@
+@use './Topbar.module';
+@use './colors' as colors;
+
+.menuIcon {
+    width: 34px;
+    height: -webkit-fill-available;
+    height: -moz-available;
+    color: white;
+
+    transition: color 0.2s;
+    &:hover {
+        color: #505050;
+        cursor: pointer;
+    }
+}
+
+.menu {
+    position: absolute;
+    right: 0px;
+    top: 54px;
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+    width: fit-content;
+
+    align-items: center;
+
+    padding: 20px;
+
+    color: white;
+    transform: translate(0%, 0%);
+    background: rgba(42, 0, 52, 0.8);
+    backdrop-filter: blur(8px);
+    //transform-origin: 100% 0%;
+    transform: scale(1, 0);
+
+    transition: transform 0.2s ease-in-out 0.15s;
+
+    .title {
+        font-size: 2rem;
+        margin: 10px;
+        margin-top: -20px;
+        font-weight: normal;
+        text-decoration: underline;
+    }
+
+    .menuSettings {
+        margin-top: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+
+        .button {
+            margin-top: 10px;
+            text-decoration: none;
+        }
+    }
+
+    .menuItem {
+        opacity: 0;
+        transition: opacity 0.2s ease-in;
+
+        &.itemGrid {
+            display: grid;
+            grid-template-columns: repeat(3, auto);
+            column-gap: 40px;
+            justify-items: start;
+
+            .header {
+                text-decoration: underline;
+            }
+        }
+
+        &.itemsLeft {
+            margin: 10px 0px;
+            font-size: 1.2rem;
+            @extend .font;
+        }
+
+        &.button {
+            color: lightgreen;
+            background-color: transparent;
+
+            font-size: 2rem;
+            @extend .font;
+
+            transition: color 0.1s, opacity 0.2s ease-in;
+            &:hover {
+                color: colors.$button-hover;
+            }
+        }
+    }
+
+    &.on {
+        transform: scale(1, 1);
+        transition-delay: 0s;
+
+        .menuItem {
+            opacity: 1;
+            transition-delay: 0.2s;
+        }
+    }
+
+    &.font {
+        font-size: 2rem;
+        text-align: center;
+    }
+}

@@ -1,0 +1,22 @@
+@import '../App.scss';
+
+.createRestaurant {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    height: fit-content;
+
+    background: rgba(255, 103, 103, 0.64);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 36px;
+
+    margin: 40px;
+
+    &.font {
+        text-decoration: none;
+        color: white;
+        font-size: 2rem;
+    }
+}

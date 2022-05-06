@@ -1,0 +1,17 @@
+.label {
+    margin: 0.4rem;
+}
+
+.button {
+    border-width: 0px;
+    border-radius: 10px;
+    background-color: #ffffff;
+    font-size: 1rem;
+    transition: background-color 0.2s;
+    width: 80px;
+    margin: 0.4rem;
+
+    &:hover {
+        background-color: rgb(255, 0, 0);
+    }
+}

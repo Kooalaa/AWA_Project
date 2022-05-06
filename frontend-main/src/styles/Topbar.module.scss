@@ -1,0 +1,76 @@
+@use '../App';
+
+.topbar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    column-gap: 10px;
+    padding: 10px 20px;
+
+    position: sticky;
+    top: 0;
+
+    background: #181818;
+
+    .logo {
+        display: flex;
+        align-items: center;
+        color: #ffffff;
+        min-width: 190px;
+
+        &.logoFont {
+            font-size: 1.8rem;
+            line-height: 0px;
+            text-decoration-line: underline;
+        }
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    .searchbar {
+        width: 500px;
+        height: auto;
+
+        background: #c4c4c4;
+        border-width: 0px;
+        border-radius: 128px;
+        padding: 0.5rem;
+
+        flex: none;
+        order: 1;
+        flex-grow: 0;
+        flex-shrink: 1;
+
+        font-size: 1rem;
+        text-align: center;
+
+        &::placeholder {
+            color: black;
+        }
+
+        &::-moz-placeholder {
+            opacity: 1;
+        }
+    }
+
+    .buttons {
+        display: flex;
+        column-gap: 10px;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: center;
+
+        flex: none;
+        order: 2;
+        align-self: stretch;
+        flex-grow: 1;
+        padding: 0px;
+
+        .button {
+            text-decoration: none;
+            color: black;
+        }
+    }
+}

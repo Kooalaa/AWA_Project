@@ -1,0 +1,43 @@
+.mediumPaymentInput {
+    width: 8rem;
+    height: 1.4rem;
+    border-radius: 256px;
+    border: none;
+    background: #c4c4c4;
+    padding: 0.5rem 0.5rem 0.5rem 1rem;
+    margin: 0.6875rem;
+    font-size: 1.25rem;
+}
+
+.longPaymentInput {
+    width: 19.2rem;
+    height: 1.4rem;
+    border-radius: 256px;
+    border: none;
+    background: #c4c4c4;
+    padding: 0.5rem 0.5rem 0.5rem 1rem;
+    margin: 0.6875rem;
+    font-size: 1.25rem;
+}
+
+.exDateCvv {
+    width: 2.6rem;
+    height: 1.4rem;
+    border-radius: 256px;
+    border: none;
+    background: #c4c4c4;
+    padding: 0.5rem 0.6rem 0.5rem 0.6rem;
+    margin: 0.6875rem;
+    text-align: center;
+    font-size: 1rem;
+}
+
+.rows {
+    display: flex;
+    justify-content: space-between;
+}
+
+.checkbox {
+    font-size: 1.25rem;
+    color: white;
+}

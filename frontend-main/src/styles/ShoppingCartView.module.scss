@@ -1,0 +1,185 @@
+@use '../App';
+@use 'colors' as colors;
+
+.content {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-auto-rows: min-content;
+    margin: 20px 40px;
+
+    .title {
+        grid-column: 1 / 3;
+        color: white;
+        font-size: 1.8rem;
+        @extend .font;
+    }
+
+    .error {
+        color: red;
+        font-size: 1.6rem;
+        @extend .font;
+    }
+
+    .cart {
+        margin-top: 70px;
+        .productList {
+            display: grid;
+            grid-template-columns: repeat(3, auto);
+            background-color: colors.$default-input;
+            column-gap: 70px;
+            padding: 10px;
+            border-radius: 20px;
+            width: fit-content;
+
+            font-size: 1.6rem;
+            @extend .font;
+
+            .header {
+                text-decoration: underline;
+            }
+        }
+
+        .total {
+            margin: 30px 0px;
+            @extend .title;
+        }
+
+        .deliveryAddress {
+            display: block;
+            border: none;
+            margin-bottom: 20px;
+            border-radius: 20px;
+            background-color: colors.$default-input;
+
+            padding: 0.2rem;
+            color: black;
+            font-size: 1.6rem;
+            @extend .font;
+
+            max-width: 350px;
+        }
+
+        .button {
+            background-color: rgb(207, 13, 13);
+            color: black;
+            @extend .title;
+            @extend .button;
+        }
+
+        .newAddress {
+            display: grid;
+            grid-template-columns: repeat(2, 150px);
+            row-gap: 20px;
+            column-gap: 20px;
+            margin-bottom: 20px;
+
+            .span1to3 {
+                grid-column: 1 / 3;
+            }
+
+            input {
+                border: none;
+                border-radius: 20px;
+                background-color: colors.$default-input;
+                padding: 3px 7px;
+
+                color: black;
+                font-size: 1.3rem;
+                @extend .font;
+            }
+        }
+    }
+
+    .paymentInfo {
+        margin-left: 200px;
+        margin-top: 106px;
+        width: fit-content;
+        @extend .font;
+
+        .paymentSelection {
+            display: block;
+            border: none;
+            border-radius: 20px;
+            margin-bottom: 10px;
+            background-color: colors.$default-input;
+
+            color: black;
+            padding: 0.2rem;
+            font-size: 1.6rem;
+            @extend .font;
+        }
+
+        .infoGrid {
+            display: grid;
+            grid-template-columns: repeat(3, 150px);
+            column-gap: 15px;
+            row-gap: 15px;
+
+            .span2to4 {
+                grid-column: 2 / 4;
+            }
+
+            .span1to3 {
+                grid-column: 1 / 3;
+            }
+
+            .rows1to3 {
+                display: grid;
+                row-gap: 15px;
+                grid-row: 1 / 3;
+                grid-template-columns: 150px;
+            }
+
+            .alignCenter {
+                align-self: center;
+            }
+
+            .inline {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                column-gap: 22px;
+
+                .inlineItem {
+                    text-align: center;
+                    width: 60px;
+                }
+                .inlineItem2 {
+                    text-align: center;
+                    width: 40px;
+                }
+            }
+
+            .button {
+                width: fit-content;
+                grid-column: 1 / 2;
+            }
+
+            input {
+                border: none;
+                border-radius: 20px;
+                background-color: colors.$default-input;
+                padding: 3px 7px;
+
+                color: black;
+                font-size: 1.3rem;
+                @extend .font;
+            }
+        }
+
+        .button {
+            background-color: lightgreen;
+            color: black;
+            @extend .title;
+            @extend .button;
+        }
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    .content {
+        grid-template-columns: auto;
+        .title {
+            grid-column: 1 / 2;
+        }
+    }
+}

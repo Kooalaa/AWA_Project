@@ -1,0 +1,385 @@
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 12.9 (Ubuntu 12.9-0ubuntu0.20.04.1)
+-- Dumped by pg_dump version 14.1
+
+-- Started on 2021-12-07 12:34:35
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET xmloption = content;
+SET client_min_messages = warning;
+SET row_security = off;
+
+--
+-- TOC entry 3020 (class 0 OID 16389)
+-- Dependencies: 205
+-- Data for Name: user; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public."user" (user_id, type, username, password, first_name, last_name, phone, email) FROM stdin;
+5	ADMIN	pizzapate	\\x00	Pate	Pizzalainen	0502393848	pizzeriat@pizzat.com
+12	USER	Roopertti	\\x00	Roope	Ankka	0606425678	roope.ankka@hotmail.com
+11	USER	Samppa	\\x246172676f6e326924763d3139246d3d3133313037322c743d31302c703d3424494b337977736c73636b53346a356e6c6b62346a52512458795666514b353734474273735877306b6372716b6564364b573249427037395534394e4f4f7178526c6f	Samuli	Ikäläinen	0406423190	testi_email@gmail.com
+1	SUPER	ADMIN	\\x246172676f6e326924763d3139246d3d3133313037322c743d31302c703d34244d2f5142693548516c785a79515a6e76736a6131496724724c6c7a5356555a55426f503275454b637570546e36786976784246366436726144303075304730625677	\N	\N	\N	\N
+2	ADMIN	managerking	\\x246172676f6e326924763d3139246d3d3133313037322c743d31302c703d342477326b624234303066633076303770476d324f445677244f2b5271392b59525069742f696444424f61432b473136636b507134357471426968503444545a44425949	Luigi	Ferrario	0401233434	luigi@italia.com
+\.
+
+
+--
+-- TOC entry 3024 (class 0 OID 16438)
+-- Dependencies: 209
+-- Data for Name: address; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.address (address_id, user_id, street_address, city, postcode) FROM stdin;
+1	11	Lapintie 12	Lappi	99990
+2	5	Italiankatu 28	Milano	95590
+3	2	Mammamiakuja 8	Malmö	25590
+4	12	Rahasäiliö 1	Ankkalinna	11100
+\.
+
+
+--
+-- TOC entry 3022 (class 0 OID 16419)
+-- Dependencies: 207
+-- Data for Name: restaurant; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.restaurant (restaurant_id, user_id, name, address, price_level, star_rating, type, picture) FROM stdin;
+2	2	Ravintola Olimpos	Kirkkokatu 55, 90100, Oulu	4	8	Kreikkalainen	OlimposLogo_p04i5k
+3	2	Ravintola Hella	Isokatu 13, 90100, Oulu	4	9	Ranskalainen	HellaLogo_xh44lg
+4	5	Pizzeria Finlandia	Hallituskatu 31, 90100, Oulu	2	8	Pizzeria	FinlandiaLogo_nhjpbi
+5	5	Pizzeria Santa Maria	Merikoskenkatu 5E, 90500, Oulu	1	8	Pizzeria	SantaMariaLogo_rnmyi4
+6	5	Pizzeria Napoli	Puutarhakatu 20, 20100, Turku	2	7	Pizzeria	NapoliTurkuLogo_vogxlo
+7	5	Panda Pizzeria Turku	Puutarhakatu 44, 20100, Turku	1	6	Pizzeria	PandaLogo_glplyq
+8	2	Royal Garden	Rautationkatu 8, 90100, Oulu	3	9	Kiinalainen	RoyalGardenLogo_b95n2i
+9	2	Ravintola Kiinanmuuri	Sirkkalankatu 27, 20700, Turku	3	8	Kiinalainen	KiinanmuuriLogo_ktaa4o
+10	2	Ravintola Sergios	Läntinen Rantakatu 27C, 20100, Turku	3	8	Italialainen	SergiosLogo_gmwkjq
+12	5	Mardin Pizza	Pinninkatu 32, 33100, Tampere	2	8	Pizzeria	MardinPizzaLogo_mb9cna
+11	5	Hallilan pizzeria	Männikönkatu 2, 33820, Tampere	2	9	Pizzeria	HallilanPizzaLogo_spmrwc
+13	2	Ravintola Katmandu	Satakunnankatu 29, 33210, Tampere	3	9	Nepalilainen	KatmanduLogo_rcayqn
+14	2	Il Posto	Antti Possin kuja 5, 33400, Tampere	4	9	Italialainen	IlPostoLogo_ro5qbq
+15	5	Pizzeria La Gare	Rautatienkatu 25, 33100, Tampere	2	9	Pizzeria	LaGareLogo_bbkfvs
+1	2	Ravintola Toscana	Hallituskatu 35, 90100, Oulu	4	5	Italialainen	ToscanaLogo_d7gwlq
+\.
+
+
+--
+-- TOC entry 3026 (class 0 OID 16480)
+-- Dependencies: 211
+-- Data for Name: operating_hours; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.operating_hours (operating_hours_id, restaurant_id, opening_time, closing_time, kitchen_closing_time, days) FROM stdin;
+1	1	11:00:00+02	21:00:00+02	30	Tue,Wed,Thu
+2	1	11:00:00+02	22:00:00+02	30	Fri,Sat
+3	2	11:00:00+02	22:00:00+02	30	Mon,Tue
+4	2	11:00:00+02	23:00:00+02	30	Wed,Thu
+5	2	12:00:00+02	24:00:00+02	30	Fri,Sat
+6	2	12:30:00+02	21:30:00+02	30	Sun
+7	3	16:00:00+02	22:00:00+02	30	Mon,Tue,Wed,Thu
+8	3	16:00:00+02	23:00:00+02	30	Fri,Sat
+9	4	10:30:00+02	22:00:00+02	15	Mon,Tue,Wed,Thu
+10	4	10:30:00+02	23:00:00+02	15	Fri,Sat
+11	4	12:00:00+02	22:00:00+02	15	Sun
+12	5	10:30:00+02	21:00:00+02	15	Mon,Tue,Wed,Thu
+13	5	11:00:00+02	24:00:00+02	15	Fri,Sat
+14	5	11:00:00+02	22:00:00+02	15	Sun
+15	6	15:00:00+02	21:00:00+02	15	Mon, Tue, Wed, Thu
+16	6	11:00:00+02	22:00:00+02	15	Fri, Sat
+17	6	12:00:00+02	20:00:00+02	15	Sun
+18	7	10:00:00+02	22:00:00+02	15	Mon,Tue,Wed,Thu
+19	7	10:00:00+02	24:00:00+02	15	Fri,Sat
+20	7	11:00:00+02	22:00:00+02	15	Sun
+21	8	11:00:00+02	21:00:00+02	30	Mon,Tue,Wed,Thu
+22	8	11:00:00+02	22:00:00+02	30	Fri,Sat
+23	8	12:00:00+02	21:00:00+02	30	Sun
+24	9	11:00:00+02	21:00:00+02	30	Mon,Tue,Wed,Thu
+25	9	11:00:00+02	22:00:00+02	30	Fri,Sat
+26	9	12:00:00+02	21:00:00+02	30	Sun
+27	10	16:00:00+02	23:00:00+02	30	Tue,Wed,Thu,Fri
+28	10	16:00:00+02	23:00:00+02	30	Sat
+29	11	10:30:00+02	22:30:00+02	30	Mon, Tue, Wed, Thu
+30	11	10:30:00+02	23:45:00+02	30	Fri, Sat
+31	11	10:00:00+02	22:00:00+02	30	Sun
+32	12	11:00:00+02	23:45:00+02	15	Mon, Tue, Wed, Thu
+33	12	11:00:00+02	02:00:00+02	15	Fri, Sat
+34	12	11:30:00+02	23:45:00+02	15	Sun
+35	13	12:30:00+02	20:30:00+02	30	Mon, Tue, Wed, Thu
+36	13	14:00:00+02	21:30:00+02	30	Fri, Sat
+37	14	10:30:00+02	22:00:00+02	30	Mon, Tue, Wed, Thu
+38	14	12:00:00+02	22:00:00+02	30	Fri, Sat
+39	15	10:00:00+02	22:00:00+02	15	Mon, Tue, Wed, Thu, Fri, Sat, Sun
+\.
+
+
+--
+-- TOC entry 3032 (class 0 OID 16566)
+-- Dependencies: 217
+-- Data for Name: order; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public."order" (order_id, user_id, restaurant_id, status, ready_time) FROM stdin;
+\.
+
+
+--
+-- TOC entry 3028 (class 0 OID 16491)
+-- Dependencies: 213
+-- Data for Name: product; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.product (product_id, restaurant_id, name, description, price, type, picture) FROM stdin;
+34	4	Americana	Kinkku, Ananas, aurajuusto	9.50	Pizzat	Pizzatemplate_hoo0kv
+35	4	Papagallo	Tonnikala, Ananas, aurajuusto	9.50	Pizzat	Pizzatemplate_hoo0kv
+36	4	Capriciosa	Kinkku, Herkkusieni	9.50	Pizzat	Pizzatemplate_hoo0kv
+37	4	Ferrara	Kinkku, Tonnikala, Katkarapu	9.50	Pizzat	Pizzatemplate_hoo0kv
+38	4	Finlandia	Kinkku, Tonnikala, Jauheliha, Ananas, Salami	9.50	Pizzat	Pizzatemplate_hoo0kv
+39	4	Frutti Di Mare	Katkarapu, Tonnikala, Simpukka	9.50	Pizzat	Pizzatemplate_hoo0kv
+40	4	Milaneza	Jauheliha, Sipuli	9.50	Pizzat	Pizzatemplate_hoo0kv
+41	4	Opera Special	Tonnikala, Kinkkun, Salami	9.50	Pizzat	Pizzatemplate_hoo0kv
+42	4	Paradise	Katkarapu, Ananas, Salami, Aurajuusto, Valkosipuli	9.50	Pizzat	Pizzatemplate_hoo0kv
+43	4	Roma	Jauheliha, Herkkusieni, Jalapeno	9.50	Pizzat	Pizzatemplate_hoo0kv
+44	4	Vegetariana	Paprika, Herkkusieni, Oliivi	9.50	Pizzat	Pizzatemplate_hoo0kv
+45	4	Oriental	Kebabliha, Herkkusieni, Sipuli, turkinpippu, Talon majoneesi	10.50	Erikoispizzat	Pizzatemplate_hoo0kv
+46	4	Balkanialainen	Kebabliha, Fetajuusto, Paprika	10.50	Erikoispizzat	Pizzatemplate_hoo0kv
+47	4	Poro	Poronlihaa, Kananmuna	10.50	Erikoispizzat	Pizzatemplate_hoo0kv
+48	4	Bresaola	Naudan ilmakuivattu liha, Pinaatti, Pesto, Tomaatti	10.50	Erikoispizzat	Pizzatemplate_hoo0kv
+49	4	Savulohi	Savulohi, Smetana, Rucola, Kirsikkatomaatti	10.50	Erikoispizzat	Pizzatemplate_hoo0kv
+50	4	Pollo Special	Kanakebab, Ananas, Aurajuusto, Currymajoneesi	10.50	Erikoispizzat	Pizzatemplate_hoo0kv
+51	4	Burgerpizza	Kebabliha, Jäävuorisalaatti, Talon majoneesi	10.50	Erikoispizzat	Pizzatemplate_hoo0kv
+52	5	Perfetta	4 täytettä valintasi mukaan	7.50	Pizzat	Pizzatemplate_hoo0kv
+53	5	Bella bella	Kinkku, Ananas, Katkarapu, Valkosipuli	7.50	Pizzat	Pizzatemplate_hoo0kv
+54	5	Ciao Ciao	Kinkku, Tonnikala, Katkarapu	7.50	Pizzat	Pizzatemplate_hoo0kv
+1	1	Antipasto Misto Italiana	G,L	14.90	Alkuruoka	AntipastoMisto_epegib
+2	1	Insalata Ceasar	G,L	12.90	Alkuruoka	InsalataCeasar_e5lzzk
+3	1	Carpaccio	G,L	16.90	Alkuruoka	Carpaccio_pqtjw3
+4	1	Ravioli Al Sugo	G,L	24.90	Pääruoka	RavioliAlSugo_wr9ocb
+5	1	Pasta De Le Casa	G,L	26.90	Pääruoka	PastaDeLeCasa_vawdmy
+6	1	Penne Pecoroni	G,L	27.90	Pääruoka	PennePecorino_tp67aa
+7	1	Pizza Con Carpacio	Vuohenjuusto, Basilika, Kinkku  G,L	28.90	Pääruoka	ConCarpacio_velgxp
+8	1	Insalata Italia	G,L	24.90	Pääruoka	InsalataItalia_kdyfsu
+9	1	Bistecca Al Pepe	G,L	34.90	Pääruoka	BisteccaAlPepe_q7ev1h
+10	1	Panna Cotta Al Frutti Di Bosco	G,L	9.90	Jälkiruoka	PannaCottaAlFrutti_ftgezz
+11	1	Sorbetto Variate	G,L	11.90	Jälkiruoka	SorbettoVariate_evnvkm
+12	1	Crepes Misto	G,L	11.90	Jälkiruoka	CrepeMisto_noecqz
+13	2	Välimeren salaatti	G,L	10.90	Alkuruoka	Välimerensalaatti_i8qwfw
+14	2	Falafelsalaatti	G,L	11.90	Alkuruoka	FalafelSalad_zefzy9
+15	2	Halloumisalaatti	G,L	11.90	Alkuruoka	HalloumSalad_vaho2f
+16	2	Kanavartaat perunoilla	G,L	15.90	Pääruoka	ChickenSticks_ao91qv
+17	2	Friteerattua kampelaa	G,L	14.90	Pääruoka	FriedFlounder_n5oslt
+18	2	Uunilammasta välimeren tapaan	G,L	18.90	Pääruoka	OvenLamb_upvezs
+19	2	Pippuripihvit salaatilla	G,L	16.90	Pääruoka	PepperSteak_qwbxtw
+20	2	Suklaakakkua	G,L	10.90	Jälkiruoka	ChocolateCake_y2cv8z
+21	2	Baklavakakkua	G,L	9.90	Jälkiruoka	BaklavaCake_adectn
+22	2	Baileysjäätelöä	G,L	10.90	Jälkiruoka	BayleysIcecream_nfpj0l
+23	2	Tiramisua suklaakastikkeella	G,L	11.90	Jälkiruoka	Tiramisu_c51rxp
+24	2	Välimeren pannukakkua	G,L	9.90	Jälkiruoka	Välimerenpannukakku_msg8ez
+25	3	Etanat valkosipulivoilla	G,L	9.90	Alkuruoka	SnailsGarlic_tl6etc
+26	3	Kermaista hummeririsottoa	G,L	13.90	Alkuruoka	CrabRisotto_cnrxdi
+27	3	Vihersalaatti	G,L	7.90	Alkuruoka	GreenSalad_zmuu6b
+28	3	Juurespihvit	G,L	19.90	Pääruoka	RootBeef_jdhd4y
+29	3	Ankanrintaa kirsikkakastikkeessa	G,L	24.50	Pääruoka	DuckCherrysauce_uzpm3s
+30	3	Poron ulkofilee	G,L	34.50	Pääruoka	ReindeerMeat_zq2qtl
+31	3	Pihvikarjan entrecotepihvi 250g	G,L	30.50	Pääruoka	BullEntrecote_zezift
+32	3	Creme brulee	G,L	10.50	Jälkiruoka	CremeBrulee_poayhr
+33	3	Kausijäätelöä/sorbettia 2 palloa	G,L	8.00	Jälkiruoka	IcecreamSorbet_mdydnp
+92	8	Äyriäiskeitto	G,L	8.50	Alkuruoka	ShellfishSoup_gep9jz
+93	8	Kolmen maun keitto	G,L	7.50	Alkuruoka	3Soup_dw5cix
+94	8	Mustekalarenkaita	G,L	9.00	Alkuruoka	OctopusCircles_njbwgd
+105	8	Suklaakakkua)	G,L	9.00	Jälkiruoka	ChocolateCake_y2cv8z
+85	7	Margharita	Tuplajuusto, Tuoretomaattikastike	8.50	Pizzat	Pizzatemplate_hoo0kv
+86	7	Da Vinci	Tonnikala, Fetajuusto, Aurajuusto	8.50	Pizzat	Pizzatemplate_hoo0kv
+87	7	Santa Claus	Savuporo, Kinkku, Pekoni, Sipuli, Majoneesi	10.50	Erikoispizzat	Pizzatemplate_hoo0kv
+88	7	Vesuvius	Jauheliha, Pekoni, Paprika, Chilimajoneesi	10.50	Erikoispizzat	Pizzatemplate_hoo0kv
+89	7	AC Milan	Tonnikala, Rapu, Fetajuusto, Sipuli, Majoneesi	10.50	Erikoispizzat	Pizzatemplate_hoo0kv
+90	7	Napoli	Kinkku, Fetajuusto, Sipuli, Tonnikala, Majoneesi	10.50	Erikoispizzat	Pizzatemplate_hoo0kv
+91	7	Kuningas Italia	Tonnikala, Kinkku, Pekoni, Sipuli, Fetajuusto, Aurajuusto, Majoneesi	12.50	Erikoispizzat	Pizzatemplate_hoo0kv
+95	8	Kana mykyjä 6kpl	G,L	9.50	Alkuruoka	ChickenDumpling_kbzk3y
+96	8	Paistetua mustekalaa chilikastikkeessa	G,L	18.00	Pääruoka	FriedOctopus_oadku7
+97	8	Friteerattua kalaa chilikastikkeessa	G,L	17.00	Pääruoka	FriedFish_rsgkj1
+98	8	Paistettua ankkaa hoisin-kastikkeessa	G,L	25.00	Pääruoka	PanDuck_fcrrbz
+99	8	Paistettua härkää chop suey	G,L	16.00	Pääruoka	PanBullChopSuey_flh83m
+100	8	Paistettua porsasta talon tapaan	G,L	15.00	Pääruoka	PanPork_yvhupp
+101	8	Friteerattua kanaa hapanimeläkastikkeessa	G,L	15.00	Pääruoka	FriedChickenSourSweet_o9cj31
+102	8	Paistettuja vihanneksia szechuan	G,L	14.00	Pääruoka	FriedVegetablesSzechuan_tmulxi
+103	8	Banana split jäätelöä	G,L	10.00	Jälkiruoka	BananaSplit_ohrwb4
+104	8	Friteerattuja hedelmiä ja jäätelöä (2 palloa)	G,L	8.00	Jälkiruoka	Friedfruits
+106	9	Peking keitto	G,L	6.50	Alkuruoka	PekingSoup_izpdb2
+107	9	Katkarapu-tofukeitto	G,L	6.50	Alkuruoka	ShrimpTofuSoup_vkksbb
+108	9	Wun-tun keitto	G,L	6.50	Alkuruoka	WunTunSoup_m6q9tl
+109	9	Kana Yu-Xiang	G,L	12.80	Pääruoka	ChickenYuXiang_xnhasz
+110	9	Härkä Yu-Xiang	G,L	13.80	Pääruoka	BullYuXiang_fve2fe
+111	9	Kana Kung-Po	G,L	12.80	Pääruoka	ChickenKungPo_eecs4x
+112	9	Härkä Kung-Po	G,L	13.80	Pääruoka	BullKungPo_wrtse0
+113	9	Kana Peking	G,L	12.80	Pääruoka	ChickenPeking_iqzfk1
+114	9	Kana Curry	G,L	12.80	Pääruoka	ChickenCurry_gmr9hf
+115	9	Jättirapu Curry	G,L	19.80	Pääruoka	GiantShrimpCurry_vb4h6r
+116	9	Tofu Curry	G,L	13.80	Pääruoka	TofuCurry_dhhyzk
+117	10	Scombro maritano	Marinoitua makrillia, hapankermaa, polentasipsiä, oliiveja ja kapriksia	13.50	Alkuruoka	ScombroFood_umf4xc
+118	10	Carpaccio Di Barbabietola	Punajuurta, bresaolaa ja hunajalla maustettua palsternakkakreemiä	13.50	Alkuruoka	CarpaccioDiBarbabietola_rbwicv
+119	10	Tuorlo Fritto Con Misto Di Funghi	Vegaanisella risotolla täytetty sieni ja vihreää pestoa	13.50	Alkuruoka	TuorloFritto_epsmlb
+120	10	Fusilli Al Ragu Di Lenticchie	Fusillia ja punaista linssiragúa	17.90	Pääruoka	FusilliAlRagu_vkgtzt
+121	10	Tagliatelle Al Ragu Bianco	Tagliatellea sekä valkoista ragúa (ragú, salami, kinkkua)	18.50	Pääruoka	TagliatelleAlRagu_ejhjen
+122	10	Risotto Al Parmigiano	Tähtianiksella maustettua Parmesanrisottoa ja Chiantisiirappia	21.90	Pääruoka	RisottoAlParmigiano_acvr42
+123	10	Petto Di Pollo	Pekonilla -ja kesäkurpitsalla täytettyä maissikananrintaa sous vidé, perunapyreetä ja uunissa paahdettua paprikaa	22.90	Pääruoka	PettoDiPollo_mynhox
+124	10	Formaggi	Valikoima italialaisia juustoja	13.90	Jälkiruoka	Formaggi_erlplm
+125	10	Gelato Misto Della Casa	Jäätelökimara (kolme palloa) itse tehtyä jäätelöä	12.00	Jälkiruoka	GelatoMisto_gxsc9x
+126	10	Tortino Di Limone Con Meringa Italiana	Sitruunatorttu, italialaista marenkia ja appelsiinisorbettia	12.00	Jälkiruoka	Tortino_rpg1xg
+55	5	Finlandia	Kinkku, Salami, Aurajuusto, Ananas	7.50	Pizzat	Pizzatemplate_hoo0kv
+56	5	Americana	Kinkku, Ananas, Aurajuusto	7.50	Pizzat	Pizzatemplate_hoo0kv
+57	5	Opera	Kinkku, Tonnikala	7.50	Pizzat	Pizzatemplate_hoo0kv
+58	5	Mexicana	Pepperoni, Ananas, Jalapeno, Chilikastike	7.50	Pizzat	Pizzatemplate_hoo0kv
+59	5	Hawaii	Kebabliha, Ananas, Aurajuusto, Majoneesi	7.50	Pizzat	Pizzatemplate_hoo0kv
+60	5	Santa Maria	Kebabliha, Jäävuorisalaatti, Tomaatti, Sipuli, Kurkku, Chili, Fetajuusto	7.50	Erikoispizzat	Pizzatemplate_hoo0kv
+61	5	Massimo	Kebabliha, Jauheliha, Sipuli, Curry, Majoneesi	7.50	Erikoispizzat	Pizzatemplate_hoo0kv
+62	5	Minotaurus	Häränfile, Herkkusieni, Paprika, Tomaatti, Majoneesi	9.50	Erikoispizzat	Pizzatemplate_hoo0kv
+63	5	Santa Claus	Savuporo + 3 täytettä valintasi mukaan	9.50	Erikoispizzat	Pizzatemplate_hoo0kv
+64	5	Rodos	Savulammas, Jauheliha, Sipuli, Paprika, Majoneesi	9.50	Erikoispizzat	Pizzatemplate_hoo0kv
+65	5	Paris	Savulammas + 3 täytettä valintasi mukaan	9.50	Erikoispizzat	Pizzatemplate_hoo0kv
+66	6	Margharita	Tomaattikastike, Tuplajuusto, Tuorebasilika	9.90	Pizzat	Pizzatemplate_hoo0kv
+67	6	Pomodoro	Kirsikkatomaatti, Buffalomozzarella, Tuorebasilika, Balsamico	9.90	Pizzat	Pizzatemplate_hoo0kv
+68	6	Fantasia	1-5 täytettä valintasi mukaan	9.90	Pizzat	Pizzatemplate_hoo0kv
+69	6	Calzone	Taitettu Pizza kahdella lempitäytteellä	9.90	Pizzat	Pizzatemplate_hoo0kv
+70	6	El Papa	Parsakaali, Munakoiso, Ananas, Fetajuusto, Hummus, Basilika	9.90	Pizzat	Pizzatemplate_hoo0kv
+71	6	Napoli	Jauheliha, Tuoretomaatti, Aurajuusto	9.90	Pizzat	Pizzatemplate_hoo0kv
+72	6	Banana	Kanafile, Banaani, Maissi, Curry	9.90	Pizzat	Pizzatemplate_hoo0kv
+73	6	Frutti Di Mare	Tonnikala, Jokiravun pyrstö, Simpukka, Valkosipuli	9.90	Pizzat	Pizzatemplate_hoo0kv
+74	6	Morning	Pekoni, Suolakurkku, Cheddarjuusto, Paistettu Kananmuna, Sipuli, BBQ-kastike	11.90	Erikoispizzat	Pizzatemplate_hoo0kv
+75	6	Indiana	Kananfile, Paprika, Valkosipuli, Ananas, Curry	11.90	Erikoispizzat	Pizzatemplate_hoo0kv
+76	6	Thai	Kanafile, Rapu, Ananas, Valkosipuli, Chili, Korianteri	11.90	Erikoispizzat	Pizzatemplate_hoo0kv
+77	6	Oscar	Palvikinkku, Rapu, Viherparsa, Bearnaisekastike	11.90	Erikoispizzat	Pizzatemplate_hoo0kv
+78	6	Supreme	Pepperoni, Pekoni, Punasipuli, Aurajuusto, Rucola	11.90	Erikoispizzat	Pizzatemplate_hoo0kv
+79	6	Gamberi	Salami, Paprika, Aurajuusto, Jokiravunpyrstö	11.90	Erikoispizzat	Pizzatemplate_hoo0kv
+80	7	Frutti Di Mare	Tonnikala, Katkarapu, Simpukka	8.50	Pizzat	Pizzatemplate_hoo0kv
+81	7	Fantasia	3 täytettä valintasi mukaan	8.50	Pizzat	Pizzatemplate_hoo0kv
+82	7	Al Capone	Jauheliha, Sipuli, Kinkku	8.50	Pizzat	Pizzatemplate_hoo0kv
+83	7	Opera Special	Kinkku, Salami, Tonnikala	8.50	Pizzat	Pizzatemplate_hoo0kv
+84	7	Poro	Savuporo, Kinkku, Sipuli	8.50	Pizzat	Pizzatemplate_hoo0kv
+\.
+
+
+--
+-- TOC entry 3033 (class 0 OID 16604)
+-- Dependencies: 218
+-- Data for Name: order_product; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.order_product (order_id, product_id) FROM stdin;
+\.
+
+
+--
+-- TOC entry 3035 (class 0 OID 16788)
+-- Dependencies: 220
+-- Data for Name: payment_information; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.payment_information (payment_information_id, user_id, type, card_num, cvv, expiration_date, street_address, city, postcode, first_name, last_name) FROM stdin;
+1	11	CARD	1234567890001928	123	2023-01-08	Lapintie 1	Lappi	99990	Samuli	Ikäläinen
+2	12	CARD	5555567890761948	321	2025-01-04	Rahasäiliö 1	Ankkalinna	11100	Roope	Ankka
+\.
+
+
+--
+-- TOC entry 3030 (class 0 OID 16548)
+-- Dependencies: 215
+-- Data for Name: special_offer; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.special_offer (offer_id, product_id, percent_off) FROM stdin;
+2	12	0.25
+3	19	0.25
+4	3	0.75
+5	21	0.35
+6	20	0.15
+1	27	0.95
+\.
+
+
+--
+-- TOC entry 3041 (class 0 OID 0)
+-- Dependencies: 208
+-- Name: address_address_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.address_address_id_seq', 4, true);
+
+
+--
+-- TOC entry 3042 (class 0 OID 0)
+-- Dependencies: 210
+-- Name: operating_hours_operating_hours_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.operating_hours_operating_hours_id_seq', 39, true);
+
+
+--
+-- TOC entry 3043 (class 0 OID 0)
+-- Dependencies: 216
+-- Name: order_order_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.order_order_id_seq', 1, false);
+
+
+--
+-- TOC entry 3044 (class 0 OID 0)
+-- Dependencies: 219
+-- Name: payment_information_payment_information_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.payment_information_payment_information_id_seq', 2, true);
+
+
+--
+-- TOC entry 3045 (class 0 OID 0)
+-- Dependencies: 212
+-- Name: product_product_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.product_product_id_seq', 126, true);
+
+
+--
+-- TOC entry 3046 (class 0 OID 0)
+-- Dependencies: 206
+-- Name: restaurant_restaurant_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.restaurant_restaurant_id_seq', 15, true);
+
+
+--
+-- TOC entry 3047 (class 0 OID 0)
+-- Dependencies: 214
+-- Name: special_offer_offer_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.special_offer_offer_id_seq', 7, true);
+
+
+--
+-- TOC entry 3048 (class 0 OID 0)
+-- Dependencies: 204
+-- Name: user_user_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.user_user_id_seq', 12, true);
+
+
+-- Completed on 2021-12-07 12:34:36
+
+--
+-- PostgreSQL database dump complete
+--
+

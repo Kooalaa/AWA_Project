@@ -1,0 +1,56 @@
+@import '../App.scss';
+
+.specialoffersitem {
+    /* Offer_items */
+
+    /* Auto Layout */
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    background: #7e7e7e;
+    box-shadow: 10px 10px 6px 3px rgba(0, 0, 0, 0.25);
+    border-radius: 30px;
+    overflow: hidden;
+
+    min-width: 300px;
+    width: 300px;
+    text-decoration: none;
+
+    img {
+        width: 400px;
+        height: 200px;
+        object-fit: cover;
+    }
+
+    .offerInfo {
+        margin: 10px 0px;
+        margin-bottom: 0px;
+        display: flex;
+        align-items: center;
+        flex-grow: 1;
+        width: -webkit-fill-available;
+        width: -moz-available;
+        justify-content: space-around;
+        align-content: center;
+        column-gap: 100px;
+        padding-left: 10px;
+        padding-right: 10px;
+        min-height: 40px;
+
+        &.percent {
+            margin: 0px;
+            min-height: 10px;
+            margin-bottom: 10px;
+            color: black;
+            @extend .font;
+        }
+
+        .font {
+            font-size: 1rem;
+            text-align: center;
+            color: black;
+        }
+    }
+}

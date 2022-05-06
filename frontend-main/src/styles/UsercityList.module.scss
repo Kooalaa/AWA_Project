@@ -1,0 +1,52 @@
+@use '../App.scss';
+
+.userCityStyle {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 5px 20px 30px;
+
+    background: #006868;
+    border-radius: 36px;
+
+    flex: none;
+    order: 1;
+    align-self: stretch;
+    flex-grow: 0;
+    margin: 40px;
+
+    .itemPlacement {
+        width: -webkit-fill-available;
+        width: -moz-available;
+        margin: 0px;
+        display: grid;
+        justify-items: center;
+        grid-template-columns: repeat(4, auto);
+
+        padding: 0px;
+        padding-top: 0px;
+        padding-bottom: 10px;
+        column-gap: 50px;
+        row-gap: 50px;
+
+        &::-webkit-scrollbar {
+            visibility: hidden;
+        }
+    }
+
+    .font {
+        font-size: 2rem;
+    }
+
+    @media only screen and (max-width: 1900px) {
+        .itemPlacement {
+            grid-template-columns: repeat(3, auto);
+        }
+    }
+
+    @media only screen and (max-width: 1470px) {
+        .itemPlacement {
+            grid-template-columns: repeat(2, auto);
+        }
+    }
+}

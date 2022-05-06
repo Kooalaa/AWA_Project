@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Courgette&family=Sofia&family=Varela+Round&display=swap');
+
+body {
+    background-color: #313131;
+}
+
+.button {
+    background: #c4c4c4;
+    border-width: 0px;
+    border-radius: 10px;
+    padding: 0px 5px;
+
+    &.font {
+        font-size: 1.3rem;
+        line-height: 1.5;
+    }
+
+    transition: background-color 0.2s ease-out;
+    &:hover {
+        background-color: #505050;
+        cursor: pointer;
+    }
+}
+
+.font {
+    font-family: 'Courgette';
+    font-style: normal;
+    font-weight: normal;
+    user-select: none;
+    font-size: 1rem;
+}
+
+.logoFont {
+    font-family: Sofia;
+    @extend .font;
+}

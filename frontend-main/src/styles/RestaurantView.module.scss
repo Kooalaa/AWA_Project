@@ -1,0 +1,285 @@
+@use '../App.scss';
+
+.content {
+    height: auto;
+    // background-color: orange;
+    color: white;
+    margin: 20px;
+
+    .restaurantInfoStyle {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        height: 100%;
+        // background-color: green;
+
+
+        .pictureStyle {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 454px;
+            height: 328px;
+            border-radius: 30px;
+            background-color: #7E7E7E;
+            box-shadow: 10px 10px 10px rgb(14, 14, 14);
+            margin-top: 40px;
+
+            .pictureStyleSize {
+                width: 100%;
+                height: 100%;
+                border-radius: 30px;
+            }
+        }
+
+        .restInfo {
+            width: 988px;
+            // height: 100%;
+            font-size: 1.5rem;
+            // background-color: lime;
+
+            .name {
+                height: 52px;
+                border-radius: 30px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: #7E7E7E;
+                box-shadow: 10px 10px 10px rgb(14, 14, 14);
+            }
+
+            .address {
+                height: 52px;
+                border-radius: 30px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: #C4C4C4;
+                box-shadow: 10px 10px 10px rgb(14, 14, 14);
+                margin: 17px 0px 17px 0px;
+            }
+
+            .restInfoBottom {
+                display: flex;
+                justify-content: space-between;
+                width: 100%;
+                height: auto;
+                display: flex;
+                // background-color: red;
+
+                .operatingHours {
+                    display: flex;
+                    flex-direction: column;
+                    width: 70%;
+                    // height: 100%;
+                    border-radius: 30px;
+                    padding: 30px 20px 30px 20px;
+                    background-color: #7E7E7E;
+                    box-shadow: 10px 10px 10px rgb(14, 14, 14);
+
+                    .title {
+                        margin-bottom: 10px;
+                    }
+
+                    .operatingHoursContent {
+                        display: flex;
+                        justify-content: space-between;
+                        // grid-template-columns: repeat(4, 1fr);
+                        padding: 10px;
+                    }
+                }
+
+                .typePriceRating {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    width: 25%;
+                    // height: 100%;
+                    // background-color: blue;
+
+                    .type {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        background-color: #7E7E7E;
+                        box-shadow: 10px 10px 10px rgb(14, 14, 14);
+                        border-radius: 30px;
+                        height: 52px;
+                    }
+
+                    .priceLevel {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        background-color: #7E7E7E;
+                        box-shadow: 10px 10px 10px rgb(14, 14, 14);
+                        border-radius: 30px;
+                        height: 52px;
+                        margin: 17px 0px 17px 0px;
+                    }
+
+                    .rating {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        background-color: #7E7E7E;
+                        box-shadow: 10px 10px 10px rgb(14, 14, 14);
+                        border-radius: 30px;
+                        height: 52px;
+                    }
+                }
+            }
+        }
+    }
+
+    .restaurantMenuStyle {
+        width: 100%;
+        height: 100%;
+        margin: 40px 0px 0px 0px;
+        background-color: #7E7E7E;
+        box-shadow: 10px 10px 10px rgb(14, 14, 14);
+        font-size: 2.25rem;
+        border-radius: 30px;
+        padding: 20px 0px 20px 0px;
+
+        .menuTitle {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            // background-color: #ccc;
+            text-decoration: underline;  
+            font-size: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .categoryData {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            // background-color: #ff0000;
+
+            .categoryName {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                // background-color: green;
+                text-decoration: underline;  
+            }
+
+            .categoryProducts {
+                margin-top: 2rem;
+                margin-bottom: 2rem;
+                width: 100%;
+                // background-color: brown;
+
+                .product {
+                    width: 100%;
+                    display: grid;
+                    align-items: center;
+                    justify-items: center;
+                    grid-template-columns: repeat(3, 1fr);
+                    row-gap: 30px;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 1290px) {
+    .restaurantInfoStyle {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 100%;
+        height: 328px;
+        // background-color: green;
+
+        .pictureStyle {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 454px;
+            height: 328px;
+            border-radius: 30px;
+            background-color: #7E7E7E;
+        }
+
+        .restInfo {
+            width: 918px;
+            height: 100%;
+            font-size: 1.5rem;
+            // background-color: rebeccapurple;
+            margin: 20px 0px 0px 0px;
+        }
+    }
+}
+
+@media only screen and (max-width: 975px) {
+    .restaurantInfoStyle {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        height: auto;
+        // background-color: green;
+
+
+        .pictureStyle {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 454px;
+            // height: 328px;
+            border-radius: 30px;
+            background-color: #7E7E7E;
+        }
+
+        .restInfo {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            font-size: 1.5rem;
+            // background-color: lime;
+
+            .name {
+                width: 454px;
+                height: 52px;
+                border-radius: 30px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: #7E7E7E;
+            }
+
+            .address {
+                width: 454px;
+                height: 52px;
+                border-radius: 30px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: #C4C4C4;
+                margin: 17px 0px 17px 0px;
+            }
+
+            .restInfoBottom {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+                // background-color: red;
+
+                .typePriceRating {
+                    margin-top: 20px;
+                    width: 454px;
+                    // background-color: blue;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,45 @@
+@import '../App.scss';
+
+.specialoffers {
+    /* Special offers */
+
+    /* Auto Layout */
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 5px 20px 0px;
+
+    background: rgba(255, 103, 103, 0.64);
+    box-shadow: 10px 10px 6px 3px rgba(0, 0, 0, 0.25);
+    border-radius: 36px;
+
+    /* Inside Auto Layout */
+
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    margin: 40px;
+
+    .font {
+        font-size: 2rem;
+    }
+
+    .offerPlacement {
+        width: -webkit-fill-available;
+        width: -moz-available;
+        margin: 10px 0px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        overflow-x: scroll;
+        padding: 20px;
+        padding-top: 0px;
+        align-content: center;
+        column-gap: 50px;
+
+        &::-webkit-scrollbar {
+            visibility: hidden;
+        }
+    }
+}

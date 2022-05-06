@@ -1,0 +1,57 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "http://example.com/ModifyUser.schema.json",
+    "type": "object",
+    "title": "The root schema",
+    "description": "The root schema comprises the entire JSON document.",
+    "default": {},
+    "examples": [
+        {
+            "password": "password",
+            "first_name": "name",
+            "last_name": "name",
+            "phone": "+358 446781020",
+            "email": "user@example.com"
+        }
+    ],
+    "required": ["password", "first_name", "last_name", "phone", "email"],
+    "properties": {
+        "password": {
+            "$id": "#/properties/password",
+            "default": "",
+            "examples": ["password"],
+            "title": "New users password",
+            "type": "string"
+        },
+        "first_name": {
+            "$id": "#/properties/first_name",
+            "default": "",
+            "examples": ["name"],
+            "title": "Users first name",
+            "type": "string"
+        },
+        "last_name": {
+            "$id": "#/properties/last_name",
+            "default": "",
+            "examples": ["name"],
+            "title": "Users last name",
+            "type": "string"
+        },
+        "phone": {
+            "$id": "#/properties/phone",
+            "default": "",
+            "examples": ["+358 446781020"],
+            "title": "Users phone number",
+            "type": "string",
+            "maxLength": 15
+        },
+        "email": {
+            "$id": "#/properties/email",
+            "default": "",
+            "examples": ["user@example.com"],
+            "title": "Users email address",
+            "type": "string"
+        }
+    },
+    "additionalProperties": false
+}

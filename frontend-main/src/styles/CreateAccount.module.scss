@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Sofia&display=swap');
+@import '../App.scss';
+
+.createAccount {
+    margin: 20px 40px;
+
+    .logo {
+        color: #ffffff;
+        min-width: 190px;
+        height: auto;
+
+        &.font {
+            font-size: 1.8rem;
+            color: white;
+        }
+    }
+
+    .textFields {
+        display: flex;
+        flex-direction: column;
+        row-gap: 10px;
+        margin: 20px 0px;
+
+        input {
+            width: 400px;
+            height: auto;
+
+            background: #c4c4c4;
+            border-width: 0px;
+            border-radius: 128px;
+            padding: 0.4rem;
+
+            font-size: 0.9rem;
+            text-align: left;
+
+            &::placeholder {
+                color: black;
+            }
+        }
+    }
+
+    .userType {
+        margin: 20px 0px;
+        label {
+            &.font {
+                font-size: 1.2rem;
+                color: white;
+            }
+        }
+    }
+
+    .errors {
+        margin-top: 20px;
+        color: red;
+    }
+
+    .created {
+        color: rgb(0, 255, 21);
+
+        .link {
+            height: 30px;
+            width: 150px;
+
+            background: #c4c4c4;
+            border-width: 0px;
+            border-radius: 128px;
+
+            font-size: 0.9rem;
+            text-decoration: none;
+            &:hover {
+                background-color: rgb(112, 112, 111);
+            }
+        }
+    }
+}

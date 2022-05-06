@@ -1,0 +1,90 @@
+.operatingHoursList {
+    background-color: rgb(195, 0, 255);
+    box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.705);
+    border-radius: 10px;
+    margin: 0.4rem;
+    margin-right: 0.8rem;
+
+    .inputFields {
+        margin: 0.4rem;
+
+        .select {
+            margin: 0.4rem;
+            background: #ffffff;
+            border-width: 0px;
+            padding: 0.4rem;
+            border-radius: 10px;
+            width: 150px;
+
+            font-size: 0.9rem;
+            text-align: left;
+        }
+
+        .timeInput {
+            width: 80px;
+            background: #ffffff;
+            border-width: 0px;
+            padding: 0.4rem;
+            border-radius: 10px;
+            margin: 0.4rem;
+            font-size: 0.9rem;
+
+            &:invalid {
+                background-color: red;
+            }
+        }
+
+        .labels {
+            width: 71px;
+            background: #ffffff;
+            border-width: 0px;
+            padding: 0.4rem;
+            border-radius: 10px;
+            margin-left: 0.4rem;
+            font-size: 0.9rem;
+            text-align: left;
+            display: inline-block;
+
+            &::placeholder {
+                color: black;
+            }
+        }
+
+        .lastRow {
+            display: flex;
+            width: -webkit-fill-available;
+            width: -moz-available;
+            justify-content: space-between;
+            align-items: flex-start;
+
+            .button {
+                margin: 0.2rem;
+                border-width: 0px;
+                border-radius: 10px;
+                background-color: #979595;
+                font-size: 1rem;
+                transition: background-color 0.2s;
+                width: 100px;
+                height: 50px;
+
+                &:hover {
+                    background-color: rgb(255, 0, 0);
+                }
+            }
+
+            .numberInput {
+                width: 80px;
+                background: #ffffff;
+                border-width: 0px;
+                padding: 0.4rem;
+                border-radius: 10px;
+                margin: 0.4rem;
+                font-size: 0.9rem;
+
+                &:invalid {
+                    background-color: red;
+                }
+            }
+        }
+    }
+}
